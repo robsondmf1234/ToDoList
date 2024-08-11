@@ -5,9 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.listadetarefas.R
 import com.example.listadetarefas.adapter.MyAdapter
 import com.example.listadetarefas.databinding.FragmentListBinding
 import com.example.listadetarefas.model.ToDoItem
@@ -22,8 +24,15 @@ class ListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentListBinding.inflate(inflater, container, false)
+        setupListeners()
         setupRecycler(binding.recyclerView)
         return binding.root
+    }
+
+    private fun setupListeners() {
+        binding.fab.setOnClickListener {
+            findNavController().navigate(R.id.action_listFragment_to_addFragment)
+        }
     }
 
     private fun setupRecycler(recyclerView: RecyclerView) {
