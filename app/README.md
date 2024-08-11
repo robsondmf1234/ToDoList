@@ -57,3 +57,13 @@ Este é um aplicativo de lista de tarefas desenvolvido em Kotlin para Android. E
 ## Licença
 
 Este projeto está licenciado sob a Licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
+
+TODO:
+- [ ] Adicionar testes
+- [ ] Adicionar testes
+- [ ] Adicionar suporte a temas
+- [ ] Adicionar suporte a idiomas
+- [ ] Salvar dados localmente com Room
+- [ ] Adicionar suporte a notificações
+- 
+```
