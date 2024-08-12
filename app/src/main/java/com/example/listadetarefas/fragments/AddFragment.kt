@@ -11,7 +11,6 @@ import android.widget.Toast
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
-import androidx.navigation.fragment.findNavController
 import com.example.listadetarefas.R
 import com.example.listadetarefas.databinding.FragmentAddBinding
 
@@ -51,30 +50,30 @@ class AddFragment : Fragment() {
         }, viewLifecycleOwner, Lifecycle.State.STARTED)
     }
 
-/*    private fun insertDataDb() {
+    /*    private fun insertDataDb() {
 
-        val mTitle = binding.titleEt.text.toString()
-        val mPriority = binding.prioritiesSpinner.selectedItem.toString()
-        val mDescription = binding.descriptionEt.text.toString()
+            val mTitle = binding.titleEt.text.toString()
+            val mPriority = binding.prioritiesSpinner.selectedItem.toString()
+            val mDescription = binding.descriptionEt.text.toString()
 
-        val validation = mSharedViewModel.verifyDataFromUser(mTitle, mDescription)
-        if (validation) {
-            //Insert Data to Database
-            val newData = ToDoData(
-                0,
-                mTitle,
-                mSharedViewModel.parsePriorityToInt(mPriority),
-                mDescription
-            )
-            mToDoViewModel.insertData(newData)
-            Toast.makeText(requireContext(), "Successfuly added", Toast.LENGTH_SHORT).show()
-            //Navigate back
-            findNavController().navigate(R.id.action_addFragment_to_listFragment)
-        } else {
-            Toast.makeText(requireContext(), "Please fill out all field.", Toast.LENGTH_SHORT)
-                .show()
-        }
-    }*/
+            val validation = mSharedViewModel.verifyDataFromUser(mTitle, mDescription)
+            if (validation) {
+                //Insert Data to Database
+                val newData = ToDoData(
+                    0,
+                    mTitle,
+                    mSharedViewModel.parsePriorityToInt(mPriority),
+                    mDescription
+                )
+                mToDoViewModel.insertData(newData)
+                Toast.makeText(requireContext(), "Successfuly added", Toast.LENGTH_SHORT).show()
+                //Navigate back
+                findNavController().navigate(R.id.action_addFragment_to_listFragment)
+            } else {
+                Toast.makeText(requireContext(), "Please fill out all field.", Toast.LENGTH_SHORT)
+                    .show()
+            }
+        }*/
 
     private fun prepareToSaveInformations() {
         val (description, favorite) = colectInformations()
