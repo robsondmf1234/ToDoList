@@ -11,7 +11,6 @@ import android.widget.Toast
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
-import androidx.navigation.fragment.findNavController
 import com.example.listadetarefas.R
 import com.example.listadetarefas.databinding.FragmentAddBinding
 
@@ -79,7 +78,8 @@ class AddFragment : Fragment() {
     private fun prepareToSaveInformations() {
         val (description, favorite) = colectInformations()
         showInformations(description, favorite)
-        findNavController().navigate(R.id.action_addFragment_to_listFragment)
+        requireActivity().onBackPressed()
+
 
     }
 
