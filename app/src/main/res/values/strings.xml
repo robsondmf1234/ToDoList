@@ -2,6 +2,7 @@
     <string name="app_name">Lista de Tarefas</string>
     <string name="description">Descrição da Tarefa</string>
     <string name="title">Name</string>
+    <string name="lista_de_tarefas">Lista de Tarefas</string>
 
 
     <string-array name="priorities">
