@@ -88,12 +88,12 @@ class AddFragment : Fragment() {
             toggleFavorite()
             checkFavorite()
         }
-        binding.iconBack.setOnClickListener {
+/*        binding.iconBack.setOnClickListener {
             requireActivity().onBackPressed()
         }
         binding.iconSave.setOnClickListener {
             prepareToSaveInformations()
-        }
+        }*/
     }
 
     private fun colectInformations(): Pair<String, Boolean> {

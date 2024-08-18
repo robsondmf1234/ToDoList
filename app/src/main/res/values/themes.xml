@@ -16,26 +16,8 @@
 
     <style name="Theme.ListaDeTarefas" parent="Base.Theme.ListaDeTarefas" />
 
-
-    <!-- Custom Toolbar style -->
-    <style name="CustomToolbar" parent="Widget.AppCompat.Toolbar">
-        <item name="android:background">?attr/colorPrimary</item>
-        <item name="android:titleTextColor">@color/white</item>
-        <item name="android:subtitleTextColor">@color/white</item>
-        <item name="titleTextAppearance">@style/Toolbar.TitleText</item>
-        <item name="android:textAlignment">center</item>
-        <item name="subtitleTextAppearance">@style/Toolbar.SubtitleText</item>
+    <style name="CustomTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorFullWidth">false</item>
     </style>
 
-    <!-- Custom title text appearance -->
-    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
-        <item name="android:textSize">20sp</item>
-        <item name="android:textColor">@color/white</item>
-    </style>
-
-    <!-- Custom subtitle text appearance -->
-    <style name="Toolbar.SubtitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
-        <item name="android:textSize">16sp</item>
-        <item name="android:textColor">@color/white</item>
-    </style>
 </resources>
