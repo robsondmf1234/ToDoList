@@ -16,8 +16,4 @@
 
     <style name="Theme.ListaDeTarefas" parent="Base.Theme.ListaDeTarefas" />
 
-    <style name="CustomTabLayout" parent="Widget.Design.TabLayout">
-        <item name="tabIndicatorFullWidth">false</item>
-    </style>
-
 </resources>
