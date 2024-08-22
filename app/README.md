@@ -59,7 +59,7 @@ Este é um aplicativo de lista de tarefas desenvolvido em Kotlin para Android. E
 Este projeto está licenciado sob a Licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
 
 TODO:
-- [ ] Adicionar viewpager2 para exibir diversas listas de tarefas
+- [x] Adicionar viewpager2 para exibir diversas listas de tarefas
 - [ ] Adicionar a biblioteca do Room
 - [ ] Adicionar viewModel para o fragmento de adicionar tarefa
 - [ ] Adicionar repository para gerenciar os dados
