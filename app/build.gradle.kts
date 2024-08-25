@@ -50,5 +50,7 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
+    implementation(libs.dataStore)
+    implementation(libs.gson)
 
 }
