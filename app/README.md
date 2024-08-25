@@ -60,6 +60,9 @@ Este projeto está licenciado sob a Licença MIT. Veja o arquivo `LICENSE` para 
 
 TODO:
 - [x] Adicionar viewpager2 para exibir diversas listas de tarefas
+- [x] Adicionado data store para a lista de tarefas
+- [x] Adicionado Gson para serializar e deserializar objetos para converter em JSON a lista de tarefas para salvar no data store
+- [ ] No metodo createFragment adicionar um logica para abrir o fragment de forma dinamica 
 - [ ] Adicionar a biblioteca do Room
 - [ ] Adicionar viewModel para o fragmento de adicionar tarefa
 - [ ] Adicionar repository para gerenciar os dados
