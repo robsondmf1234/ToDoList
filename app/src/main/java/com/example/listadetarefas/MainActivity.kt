@@ -1,6 +1,9 @@
 package com.example.listadetarefas
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
@@ -9,6 +12,7 @@ import androidx.datastore.preferences.core.preferencesKey
 import androidx.datastore.preferences.createDataStore
 import androidx.lifecycle.lifecycleScope
 import com.example.listadetarefas.databinding.ActivityMainBinding
+import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -45,8 +49,7 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launch {
             saveList(
                 key = "1",
-                list = listOf("⭐", "Minhas tarefas", "Minhas tarefas - 2",
-                    "Minhas tarefas - 3", "Minhas tarefas - 4", "+Nova Lista")
+                list = listOf("⭐", "Minhas tarefas")
             )
         }
     }
@@ -75,5 +78,27 @@ class MainActivity : AppCompatActivity() {
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
             tab.text = tabListTitle[position]
         }.attach()
+
+        // Adicionar botão ao último item do TabLayout
+        addButtonToLastTab()
+    }
+
+    private fun addButtonToLastTab() {
+        val tabLayout = binding.tabLayout
+        val tab = tabLayout.newTab()
+        val button = Button(this).apply {
+            text = "New Tab"
+            setOnClickListener {
+                openAddTabActivity()
+                Toast.makeText(this@MainActivity, "New Tab", Toast.LENGTH_SHORT).show()
+            }
+        }
+        tab.customView = button
+        tabLayout.addTab(tab)
+    }
+
+    private fun openAddTabActivity() {
+        val intent = Intent(this, AddActivity::class.java)
+        startActivity(intent)
     }
 }
