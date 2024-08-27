@@ -21,7 +21,7 @@
         android:id="@+id/edtTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         android:text="Criar nova lista"
         android:textColor="@color/black"
         android:textSize="28sp"
@@ -31,14 +31,16 @@
         app:layout_constraintStart_toEndOf="@id/btnClose"
         app:layout_constraintTop_toTopOf="@id/btnClose" />
 
-    <TextView
+    <Button
         android:id="@+id/txtConcluido"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/transparent"
         android:text="Concluido"
-        android:textColor="@color/black"
-        android:textSize="24sp"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
         android:textStyle="bold"
+        android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toBottomOf="@id/btnClose"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/edtTitle"

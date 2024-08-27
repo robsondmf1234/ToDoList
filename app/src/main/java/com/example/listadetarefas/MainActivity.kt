@@ -87,7 +87,8 @@ class MainActivity : AppCompatActivity() {
         val tabLayout = binding.tabLayout
         val tab = tabLayout.newTab()
         val button = Button(this).apply {
-            text = "New Tab"
+            text = context.getString(R.string.new_list)
+            setBackgroundColor(context.getColor(R.color.transparent))
             setOnClickListener {
                 openAddTabActivity()
                 Toast.makeText(this@MainActivity, "New Tab", Toast.LENGTH_SHORT).show()
