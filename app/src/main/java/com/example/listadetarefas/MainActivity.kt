@@ -23,6 +23,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var dataStore: DataStore<Preferences>
     private val listDefault = listOf("Tarefas", "Minhas tarefas", "Nova Lista")
+    private var dinamicList = mutableListOf<String>()
+
     private var tabListTitle = emptyList<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {

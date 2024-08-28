@@ -62,6 +62,9 @@ TODO:
 - [x] Adicionar viewpager2 para exibir diversas listas de tarefas
 - [x] Adicionado data store para a lista de tarefas
 - [x] Adicionado Gson para serializar e deserializar objetos para converter em JSON a lista de tarefas para salvar no data store
+- [x] Adicionado botão de adicionar tarefa
+- [x] Adicionado fragmento de adicionar tarefa
+- [ ] Ao clicar em concluido , adicionar esta tarefa a lista(dinamicList) de tarefas que esta na MainActivity 
 - [ ] No metodo createFragment adicionar um logica para abrir o fragment de forma dinamica 
 - [ ] Adicionar a biblioteca do Room
 - [ ] Adicionar viewModel para o fragmento de adicionar tarefa
