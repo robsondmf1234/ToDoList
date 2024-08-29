@@ -1,9 +1,9 @@
 package com.example.listadetarefas
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
@@ -12,7 +12,6 @@ import androidx.datastore.preferences.core.preferencesKey
 import androidx.datastore.preferences.createDataStore
 import androidx.lifecycle.lifecycleScope
 import com.example.listadetarefas.databinding.ActivityMainBinding
-import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -22,7 +21,7 @@ import kotlinx.coroutines.launch
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var dataStore: DataStore<Preferences>
-    private val listDefault = listOf("Tarefas", "Minhas tarefas", "Nova Lista")
+    private val listDefault = listOf("Tarefas", "Minhas tarefas")
     private var dinamicList = mutableListOf<String>()
 
     private var tabListTitle = emptyList<String>()
@@ -93,7 +92,6 @@ class MainActivity : AppCompatActivity() {
             setBackgroundColor(context.getColor(R.color.transparent))
             setOnClickListener {
                 openAddTabActivity()
-                Toast.makeText(this@MainActivity, "New Tab", Toast.LENGTH_SHORT).show()
             }
         }
         tab.customView = button
@@ -102,6 +100,21 @@ class MainActivity : AppCompatActivity() {
 
     private fun openAddTabActivity() {
         val intent = Intent(this, AddActivity::class.java)
-        startActivity(intent)
+        intent.putStringArrayListExtra("dinamicList", ArrayList(dinamicList))
+        startActivityForResult(intent, REQUEST_CODE_ADD_ACTIVITY)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_CODE_ADD_ACTIVITY && resultCode == Activity.RESULT_OK) {
+            data?.getStringArrayListExtra("updatedList")?.let {
+                dinamicList = it.toMutableList()
+                setupViewPagerAndTabs(dinamicList)
+            }
+        }
+    }
+
+    companion object {
+        private const val REQUEST_CODE_ADD_ACTIVITY = 1
     }
 }

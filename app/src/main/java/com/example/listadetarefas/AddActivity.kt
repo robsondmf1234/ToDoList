@@ -1,19 +1,30 @@
 package com.example.listadetarefas
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.listadetarefas.databinding.ActivityAddBinding
 
+const val TAG = "AddActivity"
+
 class AddActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAddBinding
+    private var list: MutableList<String> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityAddBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+        // Recuperar a lista do Intent
+        list = intent.getStringArrayListExtra("dinamicList") ?: mutableListOf()
+        Log.d(TAG, "Lista Recuperada: $list")
+
         setupStateButton()
         setupListeners()
         setupTextWatcher()
@@ -26,15 +37,28 @@ class AddActivity : AppCompatActivity() {
 
     private fun setupListeners() {
         binding.buttonFinish.setOnClickListener {
+            addTaskOnList()
             Toast.makeText(
                 this,
-                "Tarefa ${binding.edtTaskname.text} com sucesso!",
+                "Tarefa ${binding.edtTaskname.text} adicionada com sucesso!",
                 Toast.LENGTH_SHORT
             ).show()
         }
         binding.btnClose.setOnClickListener {
             finish()
         }
+    }
+
+    private fun addTaskOnList() {
+        list.add(binding.edtTaskname.text.toString())
+        goBackToMainActivity()
+    }
+
+    private fun goBackToMainActivity() {
+        val resultIntent = Intent()
+        resultIntent.putStringArrayListExtra("updatedList", ArrayList(list))
+        setResult(Activity.RESULT_OK, resultIntent)
+        finish()
     }
 
     private fun setupTextWatcher() {
