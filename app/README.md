@@ -37,29 +37,18 @@ Este é um aplicativo de lista de tarefas desenvolvido em Kotlin para Android. E
 3. Edite ou remova tarefas existentes clicando nelas.
 4. Marque tarefas como concluídas clicando na caixa de seleção ao lado da tarefa.
 
-## Contribuição
-
-1. Faça um fork do projeto.
-2. Crie uma nova branch:
-    ```sh
-    git checkout -b minha-nova-funcionalidade
-    ```
-3. Faça suas alterações e commit:
-    ```sh
-    git commit -m 'Adiciona nova funcionalidade'
-    ```
-4. Envie para o repositório remoto:
-    ```sh
-    git push origin minha-nova-funcionalidade
-    ```
-5. Abra um Pull Request.
-
 ## Licença
 
 Este projeto está licenciado sob a Licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
 
 TODO:
 - [x] Adicionar viewpager2 para exibir diversas listas de tarefas
+- [x] Adicionado data store para a lista de tarefas
+- [x] Adicionado Gson para serializar e deserializar objetos para converter em JSON a lista de tarefas para salvar no data store
+- [x] Adicionado botão de adicionar tarefa
+- [x] Adicionado fragmento de adicionar tarefa
+- [x] Ao clicar em concluido , adicionar esta tarefa a lista(dinamicList) de tarefas que esta na MainActivity 
+- [ ] No metodo createFragment adicionar um logica para abrir um Fragment generico que recebe um parametro que é o nome da lista de tarefas e exibe as tarefas desta lista 
 - [ ] Adicionar a biblioteca do Room
 - [ ] Adicionar viewModel para o fragmento de adicionar tarefa
 - [ ] Adicionar repository para gerenciar os dados

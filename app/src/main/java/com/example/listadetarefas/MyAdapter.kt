@@ -7,10 +7,14 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.listadetarefas.fragments.AddFragment
 import com.example.listadetarefas.fragments.ListFragment
 
-class MyAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
+class MyAdapter(
+    fragmentManager: FragmentManager,
+    lifecycle: Lifecycle,
+    private val tabListTitle: List<String>
+) :
     FragmentStateAdapter(fragmentManager, lifecycle) {
     override fun getItemCount(): Int {
-        return 3
+        return tabListTitle.size
     }
 
     override fun createFragment(position: Int): Fragment {
@@ -18,7 +22,7 @@ class MyAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
             0 -> FavoritesFragment()
             1 -> ListFragment()
             2 -> AddFragment()
-            // 3 -> BanheiroFragment()
+           //  3 -> ListFragment()
             else -> ListFragment()
         }
     }
