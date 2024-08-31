@@ -1,4 +1,4 @@
-package com.example.listadetarefas
+package com.example.listadetarefas.activities
 
 import android.app.Activity
 import android.content.Intent
@@ -11,6 +11,8 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.preferencesKey
 import androidx.datastore.preferences.createDataStore
 import androidx.lifecycle.lifecycleScope
+import com.example.listadetarefas.adapter.MyTabLayoutAdapter
+import com.example.listadetarefas.R
 import com.example.listadetarefas.databinding.ActivityMainBinding
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.gson.Gson
@@ -21,8 +23,8 @@ import kotlinx.coroutines.launch
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var dataStore: DataStore<Preferences>
-    private val listDefault = listOf("Tarefas", "Minhas tarefas")
-    private var dinamicList = mutableListOf<String>()
+    // Lista de títulos das abas
+    private var listaNameTitleAbs = listOf("⭐")
 
     private var tabListTitle = emptyList<String>()
 
@@ -31,10 +33,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         dataStore = createDataStore("settings")
-        prepareToSave()
         lifecycleScope.launch {
             prepareToRecover()
-            setupViewPagerAndTabs(tabListTitle)
+            setupViewPagerAndTabs(listaNameTitleAbs)
         }
     }
 
@@ -43,14 +44,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private suspend fun recoveryListSaved(): List<String> {
-        return readList("1") ?: listDefault
+        return readList("1") ?: listaNameTitleAbs
     }
 
-    private fun prepareToSave() {
+    private fun prepareToSave(dinamicList: List<String>) {
         lifecycleScope.launch {
             saveList(
                 key = "1",
-                list = listOf("⭐", "Minhas tarefas")
+                list = dinamicList
             )
         }
     }
@@ -74,7 +75,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupViewPagerAndTabs(tabListTitle: List<String>) {
-        val adapter = MyAdapter(supportFragmentManager, lifecycle, tabListTitle)
+        val adapter = MyTabLayoutAdapter(supportFragmentManager, lifecycle, tabListTitle)
         binding.viewPager.adapter = adapter
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
             tab.text = tabListTitle[position]
@@ -100,7 +101,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun openAddTabActivity() {
         val intent = Intent(this, AddActivity::class.java)
-        intent.putStringArrayListExtra("dinamicList", ArrayList(dinamicList))
+        intent.putStringArrayListExtra("dinamicList", ArrayList(listaNameTitleAbs))
         startActivityForResult(intent, REQUEST_CODE_ADD_ACTIVITY)
     }
 
@@ -108,8 +109,8 @@ class MainActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_CODE_ADD_ACTIVITY && resultCode == Activity.RESULT_OK) {
             data?.getStringArrayListExtra("updatedList")?.let {
-                dinamicList = it.toMutableList()
-                setupViewPagerAndTabs(dinamicList)
+                listaNameTitleAbs = it.toMutableList()
+                setupViewPagerAndTabs(listaNameTitleAbs)
             }
         }
     }
