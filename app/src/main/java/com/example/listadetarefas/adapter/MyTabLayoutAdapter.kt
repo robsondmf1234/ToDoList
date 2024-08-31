@@ -1,13 +1,14 @@
-package com.example.listadetarefas
+package com.example.listadetarefas.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.listadetarefas.fragments.AddFragment
+import com.example.listadetarefas.FavoritesFragment
+import com.example.listadetarefas.fragments.DinamicListFragment
 import com.example.listadetarefas.fragments.ListFragment
 
-class MyAdapter(
+class MyTabLayoutAdapter(
     fragmentManager: FragmentManager,
     lifecycle: Lifecycle,
     private val tabListTitle: List<String>
@@ -21,7 +22,8 @@ class MyAdapter(
         return when (position) {
             0 -> FavoritesFragment()
             1 -> ListFragment()
-            2 -> AddFragment()
+            //TODO("Passar para o DinamicListFragment o titulo da aba para recuperar no DataStore dentro do fragment")
+            2 -> DinamicListFragment(tabListTitle)
            //  3 -> ListFragment()
             else -> ListFragment()
         }

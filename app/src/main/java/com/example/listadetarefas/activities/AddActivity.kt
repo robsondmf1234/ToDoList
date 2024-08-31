@@ -1,4 +1,4 @@
-package com.example.listadetarefas
+package com.example.listadetarefas.activities
 
 import android.app.Activity
 import android.content.Intent
@@ -8,6 +8,7 @@ import android.text.TextWatcher
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.listadetarefas.R
 import com.example.listadetarefas.databinding.ActivityAddBinding
 
 const val TAG = "AddActivity"
@@ -50,7 +51,9 @@ class AddActivity : AppCompatActivity() {
     }
 
     private fun addTaskOnList() {
+        //Adiciona a tarefa na lista
         list.add(binding.edtTaskname.text.toString())
+        //TODO("Salvar os titulos das tarefas no DataStore")
         goBackToMainActivity()
     }
 

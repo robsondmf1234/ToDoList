@@ -6,11 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.listadetarefas.R
 import com.example.listadetarefas.adapter.MyAdapter
 import com.example.listadetarefas.databinding.FragmentListBinding
 import com.example.listadetarefas.model.ToDoItem
@@ -32,7 +30,7 @@ class ListFragment : Fragment() {
 
     private fun setupListeners() {
         binding.fab.setOnClickListener {
-          Toast.makeText(requireContext(), "Clicou no FAB", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Clicou no FAB", Toast.LENGTH_SHORT).show()
         }
     }
 
