@@ -48,7 +48,8 @@ TODO:
 - [x] Adicionado botão de adicionar tarefa
 - [x] Adicionado fragmento de adicionar tarefa
 - [x] Ao clicar em concluido , adicionar esta tarefa a lista(dinamicList) de tarefas que esta na MainActivity 
-- [ ] No metodo createFragment adicionar um logica para abrir um Fragment generico que recebe um parametro que é o nome da lista de tarefas e exibe as tarefas desta lista 
+- [ ] No metodo createFragment adicionar um logica para abrir um Fragment generico que recebe um parametro que é o nome da lista de tarefas e exibe as tarefas desta lista
+- [ ] Verificar uma forma da toolbar nao atrapalhar a exibição do floating action button
 - [ ] Adicionar a biblioteca do Room
 - [ ] Adicionar viewModel para o fragmento de adicionar tarefa
 - [ ] Adicionar repository para gerenciar os dados

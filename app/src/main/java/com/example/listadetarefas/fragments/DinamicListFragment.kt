@@ -10,11 +10,12 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.listadetarefas.adapter.MyAdapter
+import com.example.listadetarefas.databinding.FragmentDinamicBinding
 import com.example.listadetarefas.databinding.FragmentListBinding
 import com.example.listadetarefas.model.ToDoItem
 
 class DinamicListFragment(private val listTasks: List<String>) : Fragment() {
-    private lateinit var binding: FragmentListBinding
+    private lateinit var binding: FragmentDinamicBinding
     private val myAdapter by lazy { MyAdapter() }
 
 
@@ -22,7 +23,7 @@ class DinamicListFragment(private val listTasks: List<String>) : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentListBinding.inflate(inflater, container, false)
+        binding = FragmentDinamicBinding.inflate(inflater, container, false)
         setupListeners()
         setupRecycler(binding.recyclerView)
         return binding.root
