@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    kotlin("kapt")
 }
 
 android {
@@ -50,7 +51,7 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
-    implementation(libs.dataStore)
     implementation(libs.gson)
-
+    implementation(libs.room)
+    implementation(libs.roomCoroutines)
 }
